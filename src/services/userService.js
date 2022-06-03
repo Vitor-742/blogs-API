@@ -4,7 +4,7 @@ const { generateToken } = require('../utils/generateToken');
 const TESTEMAIL = /\S+@\S+\.\S+/;
 
 const createUser = async (body) => {
-    const { displayName, email, password } = body;
+    const { displayName, email, password, image } = body;
     if (displayName.length < 8) {
         return { status: 400,
             error: { message: '"displayName" length must be at least 8 characters long' } };
@@ -17,11 +17,8 @@ const createUser = async (body) => {
             error: { message: '"password" length must be at least 6 characters long' } };
     }
     const alreadyExistEmail = await User.findOne({ where: { email } });
-    // console.log(alreadyExistEmail);
-    // console.log(email);
-    if (alreadyExistEmail !== null) {
-        return { status: 409, error: { message: 'User already registered' } };
-    }
+    if (alreadyExistEmail) return { status: 409, error: { message: 'User already registered' } };
+    await User.create({ displayName, email, password, image });
     const token = generateToken({ email });
     return { status: 201, token: { token } };
 };

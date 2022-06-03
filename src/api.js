@@ -2,6 +2,7 @@ const express = require('express');
 
 const loginController = require('./controllers/loginController');
 const userController = require('./controllers/userController');
+const categoryController = require('./controllers/categoryController');
 
 const app = express();
 
@@ -11,8 +12,10 @@ app.use('/login', loginController);
 
 app.use('/user', userController);
 
+app.use('/categories', categoryController);
+
 app.post('/alo', (req, res) => {
-    res.status(200).json({ deu: 'certo' });// tomar cuidado pq validateToken nao foi testado
+    res.status(200).json({ deu: 'certo' });
 });
 
 // É importante exportar a constante `app`,

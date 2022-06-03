@@ -8,7 +8,7 @@ userRouter.post('/', async (req, res) => {
     const { body } = req;
     const createUser = await userService.createUser(body);
     if (createUser.status === 201) return res.status(201).json(createUser.token);
-    return res.status(createUser.status).json(createUser.error);
+    return res.status(createUser.status).json(createUser.error);// sepa eh pq nn cria msm
 });
 
 userRouter.get('/', validateToken, async (req, res) => {
