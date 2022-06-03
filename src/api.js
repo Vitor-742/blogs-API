@@ -14,10 +14,6 @@ app.use('/user', userController);
 
 app.use('/categories', categoryController);
 
-app.post('/alo', (req, res) => {
-    res.status(200).json({ deu: 'certo' });
-});
-
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
 module.exports = app;
