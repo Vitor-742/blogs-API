@@ -1,6 +1,10 @@
 const User = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+},
     displayName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -9,6 +13,12 @@ const User = (sequelize, DataTypes) => {
   {
     timestamps: false
   });
+
+
+  User.associate = (models) => {
+    User.hasOne(models.BlogPost, 
+      {foreignKey: 'userId', as: 'blogposts'})
+  }
 
   return User;
 };
