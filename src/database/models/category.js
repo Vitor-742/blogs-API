@@ -11,6 +11,12 @@ const Category = (sequelize, DataTypes) => {
     timestamps: false
   });
 
+  /* Category.associate = (models) => {
+    Category.belongsTo(models.PostCategories,
+      {foreignKey: 'categoryId', as: 'postcategories'}
+      )
+  } */
+
   return Category;
 };
 
