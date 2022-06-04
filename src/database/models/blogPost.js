@@ -1,5 +1,10 @@
 const BlogPost = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define("BlogPost", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+  },
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     userId: DataTypes.INTEGER,
@@ -12,7 +17,11 @@ const BlogPost = (sequelize, DataTypes) => {
 
   BlogPost.associate = (models) => {
     BlogPost.belongsTo(models.User, 
-      {foreignKey: 'userId', as: 'users'})
+      {foreignKey: 'userId', as: 'users'})// mudei o nome do arquivo para P maiusculo
+
+    /* BlogPost.hasMany(models.User, {
+      
+    }) */
   }
 
   return BlogPost;

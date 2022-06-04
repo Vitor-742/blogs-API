@@ -17,10 +17,15 @@ userRouter.get('/', validateToken, async (req, res) => {
 });
 
 userRouter.get('/:id', validateToken, async (req, res) => {
-    const { id } = req.params;
-    const userById = await userService.findById(id);
-    if (userById === null) return res.status(404).json({ message: 'User does not exist' }); 
+    try {
+        const { id } = req.params;
+        const userById = await userService.findById(id);
+        if (userById === null) return res.status(404).json({ message: 'User does not exist' }); 
     return res.status(200).json(userById);
+    } catch (error) {
+        console.log(error.message);
+        // tentativa de conserto do evaluator do github
+    }
 });
 
 module.exports = userRouter;

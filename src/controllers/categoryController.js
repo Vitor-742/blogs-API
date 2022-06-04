@@ -11,4 +11,9 @@ categoryRouter.post('/', validateToken, async (req, res) => {
     return res.status(201).json(newCategory);
 });
 
+categoryRouter.get('/', validateToken, async (req, res) => {
+    const allCategories = await categoryService.allCategories();
+    return res.status(200).json(allCategories);
+});
+
 module.exports = categoryRouter;

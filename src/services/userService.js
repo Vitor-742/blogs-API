@@ -29,7 +29,6 @@ const findAllUsers = async () => {
         const { password, ...userNoPassword } = user.dataValues;
         return userNoPassword;
     });
-    console.log(withoutPassword);
     return withoutPassword;
 };
 
