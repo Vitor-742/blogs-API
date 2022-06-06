@@ -3,7 +3,7 @@ const { BlogPost, Category, User/* , PostCategory  */ } = require('../database/m
 require('dotenv').config();
 
 const createPost = async (_body, _token) => false;
-    // const jwtPassword = process.env.JWT_SECRET;
+    // const jwtPassword = process.env.JWT_SECRET
     // const { title, content, categoryIds } = body;
     // const user = jwt.verify(token, jwtPassword);
     // console.log(user);
