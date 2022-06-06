@@ -17,7 +17,7 @@ const BlogPost = (sequelize, DataTypes) => {
 
   BlogPost.associate = (models) => {
     BlogPost.belongsTo(models.User, 
-      {foreignKey: 'userId', as: 'users'})// mudei o nome do arquivo para P maiusculo
+      {foreignKey: 'userId', as: 'user'})
   }
 
   return BlogPost;
