@@ -4,7 +4,7 @@ const postService = require('../services/postService');
 
 const postRouter = express.Router();
 
-postRouter.post('/', validateToken, async (req, res) => {
+postRouter.post('/', validateToken, async (_req, _res) => {
 //     const { title, content, categoryIds } = req.body;
 //     const token = req.headers.authorization;
 //     if (!title || !content || !categoryIds) {
